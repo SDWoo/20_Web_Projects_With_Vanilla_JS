@@ -55,6 +55,20 @@ function showMillionaires() {
 
   updateDOM();
 }
+
+//calculate Wealth
+function calculateWealth() {
+  const wealth = data.reduce((acc, user) => (acc += user.money), 0);
+
+  const wealthEl = document.createElement('div');
+  wealthEl.innerHTML = `<h3>
+  Total Wealth: 
+  <strong> ${formatMoney(wealth)}
+  </strong></h3>`;
+
+  main.appendChild(wealthEl);
+}
+
 // Update DOM
 function updateDOM(providedData = data) {
   //Clear main div
@@ -63,9 +77,16 @@ function updateDOM(providedData = data) {
   providedData.forEach((item) => {
     const element = document.createElement('div');
     element.classList.add('person');
-    element.innerHTML = `<strong>${item.name}</strong> $${item.money}`;
+    element.innerHTML = `<strong>${item.name}</strong> ${formatMoney(
+      item.money
+    )}`;
     main.appendChild(element);
   });
+}
+
+//set money format
+function formatMoney(number) {
+  return '$' + number.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
 }
 
 // add event listener
@@ -73,3 +94,4 @@ addUserBtn.addEventListener('click', getRandomUser);
 doubleBtn.addEventListener('click', doubleMoney);
 sortBtn.addEventListener('click', sortByRichest);
 showMillionairesBtn.addEventListener('click', showMillionaires);
+calculateWealthBtn.addEventListener('click', calculateWealth);
