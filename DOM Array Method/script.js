@@ -33,6 +33,15 @@ function addData(obj) {
   updateDOM();
 }
 
+// double money
+function doubleMoney() {
+  data = data.map((user) => {
+    return { ...user, money: user.money * 2 };
+  });
+
+  updateDOM();
+}
+
 // Update DOM
 function updateDOM(providedData = data) {
   //Clear main div
@@ -41,7 +50,11 @@ function updateDOM(providedData = data) {
   providedData.forEach((item) => {
     const element = document.createElement('div');
     element.classList.add('person');
-    element.innerHTML = `<strong>${item.name}</strong> ${item.money}`;
+    element.innerHTML = `<strong>${item.name}</strong> $${item.money}`;
     main.appendChild(element);
   });
 }
+
+// add event listener
+addUserBtn.addEventListener('click', getRandomUser);
+doubleBtn.addEventListener('click', doubleMoney);
