@@ -42,6 +42,19 @@ function doubleMoney() {
   updateDOM();
 }
 
+//Sort users by richest
+function sortByRichest() {
+  data.sort((a, b) => b.money - a.money);
+
+  updateDOM();
+}
+
+//Show only millionares()
+function showMillionaires() {
+  data = data.filter((user) => user.money > 1000000);
+
+  updateDOM();
+}
 // Update DOM
 function updateDOM(providedData = data) {
   //Clear main div
@@ -58,3 +71,5 @@ function updateDOM(providedData = data) {
 // add event listener
 addUserBtn.addEventListener('click', getRandomUser);
 doubleBtn.addEventListener('click', doubleMoney);
+sortBtn.addEventListener('click', sortByRichest);
+showMillionairesBtn.addEventListener('click', showMillionaires);
