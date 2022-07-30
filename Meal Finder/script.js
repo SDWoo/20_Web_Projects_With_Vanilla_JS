@@ -1,10 +1,3 @@
-// step 1. 검색
-// [o] - input에 입력하고 검색버튼 누르면 해당 검색어에 대한 정보 받아오기
-// [o] - 해당 정보들 화면에 띄워주기
-// [] - 사진 클릭하면 그 메뉴에 대한 자세한 정보 띄워주기
-
-// step 2. random 버튼
-// [] - random 버튼 누르면 랜덤 메뉴 자세한 정보 띄워주기
 const form = document.querySelector('#submit');
 const searchInput = document.querySelector('#search-input');
 const randomBtn = document.querySelector('.random-button');
@@ -17,6 +10,7 @@ const getMealsByName = async (name) => {
     `https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`
   );
 
+  console.log(data);
   resultHeading.innerHTML = `<h2>Search results for '${name}':</h2>`;
 
   data.meals === null
@@ -45,13 +39,10 @@ function searchMeal(e) {
   // Get search term
   const term = searchInput.value;
 
-  if (term.trim()) {
-    getMealsByName(term);
-  } else {
-    alert('Please enter a search term');
-  }
+  term.trim() ? getMealsByName(term) : alert('Please enter a search term');
 }
 
+//
 const getData = async (url) => {
   const response = await fetch(url);
   const data = response.json();
@@ -82,6 +73,7 @@ const getMealById = async (mealId) => {
   console.log(meal);
 };
 
+// Meal data add to DOM
 function addMealToDOM(meal) {
   const ingredients = [];
 
@@ -113,17 +105,24 @@ function addMealToDOM(meal) {
     </div>
   `;
 }
+
 // Event listener
 form.addEventListener('submit', searchMeal);
+
 randomBtn.addEventListener('click', getRandomMeal);
+
 mealsEl.addEventListener('click', (e) => {
-  const mealInfo = e.path.find((item) => {
+  console.log(e.composedPath());
+  const mealInfo = e.composedPath().find((item) => {
     if (item.classList) {
+      console.log(item.classList.contains('meal-info'));
       return item.classList.contains('meal-info');
     } else {
       return false;
     }
   });
+
+  console.log(mealInfo);
   if (mealInfo) {
     const mealID = mealInfo.dataset.mealid;
     getMealById(mealID);
