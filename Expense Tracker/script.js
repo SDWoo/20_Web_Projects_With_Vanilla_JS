@@ -1,15 +1,3 @@
-/* 
-<li class="minus">
-    Cash <span>-$400</span> <button class="delete-btn">x</button>
-</li>*/
-
-// 구현 목록
-// [] text와 amount에 값을 입력한다. local Storage 저장?
-// [o] add transaction 버튼을 누르면 해당 정보를 갖고 history에 보여준다.
-// []
-// local storage에 저장해야 될 떄 => addTransaction, removeTransaction
-// local Storage에서 받아올 때 => 처음 init 했을 때, add, remove, DOM 바꾸기 전
-
 const balance = document.querySelector('#balance-value');
 const moneyPlus = document.querySelector('#money-plus');
 const moneyMinus = document.querySelector('#money-minus');
@@ -30,7 +18,6 @@ let transactions =
 // 새로운 트랜잭션 추가
 function addTransaction(e) {
   e.preventDefault();
-
   if (text.value.trim() === '' || number.value.trim() === '') {
     alert('Please add a text and amount');
   } else {
@@ -39,15 +26,10 @@ function addTransaction(e) {
       text: text.value,
       amount: +number.value,
     };
-
     transactions.push(transaction);
-
     addTransactionDOM(transaction);
-
     updateValues();
-
     updateLocalStorage();
-
     text.value = '';
     number.value = '';
   }
