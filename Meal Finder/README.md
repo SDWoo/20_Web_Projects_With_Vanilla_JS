@@ -1,11 +1,13 @@
-step 1. 검색
-[o] - input에 입력 -> form에 submit으로 eventListener를 받아오기
-[o] - 입력한 정보에 대한 데이터를 받아오기
-[o] - 해당 정보들 화면에 띄워주기
-[o] - 사진 클릭하면 그 메뉴에 대한 자세한 정보 띄워주기
+# step 1. 검색
 
-step 2. random 버튼
-[o] - random 버튼 누르면 랜덤 메뉴 자세한 정보 띄워주기
+- [o] input에 입력 -> form에 submit으로 eventListener를 받아오기
+- [o] 입력한 정보에 대한 데이터를 받아오기
+- [o]해당 정보들 화면에 띄워주기
+- [o]사진 클릭하면 그 메뉴에 대한 자세한 정보 띄워주기
+
+# step 2. random 버튼
+
+- [o] random 버튼 누르면 랜덤 메뉴 자세한 정보 띄워주기
 
 # 회고록
 
