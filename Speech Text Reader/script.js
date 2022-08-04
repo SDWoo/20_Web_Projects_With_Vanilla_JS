@@ -1,8 +1,3 @@
-// 기능 목록
-
-// [] - 버튼을 누르면 해당 문장을 읽어준다.
-// [] - toggle Text Boxs누르면 악센트 선택, 텍스트 입력, 읽어주기 버튼이 있음
-
 const main = document.querySelector('main');
 const voiceSelect = document.querySelector('#voices');
 const textarea = document.querySelector('#text');
