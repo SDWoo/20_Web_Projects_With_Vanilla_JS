@@ -46,7 +46,6 @@ function stopVideo() {
   video.pause();
 }
 
-function setVideoProgress() {}
 // Event listeners
 video.addEventListener('click', toggleVideoStatus);
 video.addEventListener('pause', updatePlayIcon);
