@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Source+Sans+Pro:wght@200&display=swap');
+
 :root {
   --success-color: #2ecc71;
   --error-color: #e74c3c;
@@ -5,16 +7,14 @@
 
 * {
   box-sizing: border-box;
-  /* border-box 하는 이유: padding effect 없애기 위함*/
 }
 
 body {
   background-color: #f9fafb;
   font-family: 'Open Sans', sans-serif;
   display: flex;
-  justify-content: center;
   align-items: center;
-  /* center에 두기 위해서는 height나 min-hegiht를 둬야함*/
+  justify-content: center;
   min-height: 100vh;
   margin: 0;
 }
@@ -30,6 +30,7 @@ h2 {
   text-align: center;
   margin: 0 0 20px;
 }
+
 .form {
   padding: 30px 40px;
 }
@@ -47,7 +48,7 @@ h2 {
 }
 
 .form-control input {
-  border: 2px solid rgb(202, 198, 198);
+  border: 2px solid #f0f0f0;
   border-radius: 4px;
   display: block;
   width: 100%;
@@ -57,7 +58,6 @@ h2 {
 
 .form-control input:focus {
   outline: 0;
-  cursor: pointer;
   border-color: #777;
 }
 
@@ -72,8 +72,8 @@ h2 {
 .form-control small {
   color: var(--error-color);
   position: absolute;
-  left: 0;
   bottom: 0;
+  left: 0;
   visibility: hidden;
 }
 
@@ -83,16 +83,12 @@ h2 {
 
 .form button {
   cursor: pointer;
+  width: 100%;
   background-color: #3498db;
-  border: 2px solid #3498db;
+  border: 3px solid #3498db;
   border-radius: 4px;
   color: #fff;
-  width: 100%;
-  font-size: 16px;
   padding: 10px;
   margin-top: 20px;
-}
-
-.form button:hover {
-  background-color: #297db5;
+  display: block;
 }
