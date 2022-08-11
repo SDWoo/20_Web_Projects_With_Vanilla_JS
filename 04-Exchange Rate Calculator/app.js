@@ -28,3 +28,5 @@ const calculate = async () => {
 };
 
 calculate();
+
+firstInput.addEventListener('input');
