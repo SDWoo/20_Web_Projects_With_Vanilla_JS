@@ -1,8 +1,8 @@
 /*
 # 기능 목록
-- [] - 첫번째 select에 있는 값으로 API요청해서 두번째 select에 있는 환율 받아오기
-- [] - 해당 환율로 첫번째 input에 따른 두번째 input 값 바꾸기
-- [] - swap 버튼 누르면 select값 뒤바꿔서 api요청 후 받아온 값으로 화면 바꾸기
+- [o] - 첫번째 select에 있는 값으로 API요청해서 두번째 select에 있는 환율 받아오기
+- [o] - 해당 환율로 첫번째 input에 따른 두번째 input 값 바꾸기
+- [o] - swap 버튼 누르면 select값 뒤바꿔서 api요청 후 받아온 값으로 화면 바꾸기
 
 */
 const API_KEY = '1eb5c3885df94a9713aa338a';
@@ -23,10 +23,22 @@ const calculate = async () => {
   const data = await response.json();
   const rate = data.conversion_rates[currencyTwo.value];
 
-  rateEl.innerText = `${firstInput.value} ${currencyOne.value} = ${rate} ${currencyTwo.value}`;
+  rateEl.innerText = `1 ${currencyOne.value} = ${rate} ${currencyTwo.value}`;
   secondInput.value = firstInput.value * rate;
+};
+
+const handleSwapBtn = () => {
+  const temp = currencyOne.value;
+  currencyOne.value = currencyTwo.value;
+  currencyTwo.value = temp;
+
+  calculate();
 };
 
 calculate();
 
-firstInput.addEventListener('input');
+currencyOne.addEventListener('change', calculate);
+firstInput.addEventListener('input', calculate);
+currencyTwo.addEventListener('change', calculate);
+secondInput.addEventListener('input', calculate);
+swapBtn.addEventListener('click', handleSwapBtn);
