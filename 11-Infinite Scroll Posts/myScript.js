@@ -8,7 +8,7 @@
 - [o] - 받아온 데이터 DOM요소 만들어 화면에 보여주기
 - [o] - scroll 이벤트 받아서 스크롤이 끝이면 로딩 보여주기
 - [o] - 그리고 몇 초 후 DOM요소 더 추가
-- [] - 검색하고 바로 filter
+- [o] - 검색하고 바로 filter
  */
 
 const input = document.querySelector('#filter');
