@@ -1,0 +1,15 @@
+{
+  "name": "11-infinite-scroll-posts",
+  "version": "1.0.0",
+  "description": "1.  Fetch로 post 요청 보내기",
+  "main": "myScript.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^10.6.0"
+  }
+}
