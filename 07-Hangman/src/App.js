@@ -48,7 +48,6 @@ export default class App {
 
   setState(nextState) {
     this.state = nextState;
-    console.log(this.state.answer);
     this.game.setState({
       answer: this.state.answer,
       wrongCount: this.state.wrongCount,
@@ -74,8 +73,10 @@ export default class App {
     }
     callback(letter);
   }
+
   handleKeyDown(e) {
     const { answer, correctLetters, wrongLetters } = this.state;
+    console.log(e.currentTarget);
     if (e.keyCode < 65 || e.keyCode > 90) {
       return;
     }
@@ -90,9 +91,6 @@ export default class App {
     }
 
     if (answer.includes(letter)) {
-      const innerWord = document.querySelector(
-        '.enter-answer-container'
-      ).innerText;
       this.setState({
         ...this.state,
         correctLetters: [...this.state.correctLetters, letter],
@@ -111,7 +109,6 @@ export default class App {
         isNotification: false,
       });
     }
-    console.log(this.state);
   }
 
   reset() {
